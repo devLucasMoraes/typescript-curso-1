@@ -19,7 +19,7 @@ export class NegociacaoController {
         const quantidade = parseInt(this.inputQuantidade.value);
         const valor = parseFloat(this.inputValor.value);
         const negociacao = new Negociacao(date, quantidade, valor);
-
+        this.negociacoes.lista().pop()
         this.negociacoes.adiciona(negociacao)
 
         console.log(this.negociacoes.lista());
