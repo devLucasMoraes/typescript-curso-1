@@ -7,7 +7,9 @@
         // Não compilar se houver erro
         "noEmitOnError": true,
         // Adicinado tipagem a linguagem
-        "noImplicitAny": true
+        "noImplicitAny": true,
+        // Comentarios não são passados para os arquivos js
+        "removeComments": true
     },
     // diretorio onde estao os arquivos ts
     "include": ["app/**/*"]
