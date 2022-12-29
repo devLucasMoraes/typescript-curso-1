@@ -19,5 +19,13 @@ export class NegociacaoController {
         const negociacao = new Negociacao(date, quantidade, valor);
 
         console.log(negociacao)
+        this.limparFormulario();
+    }
+
+    limparFormulario(): void {
+        this.inputData.value = "";
+        this.inputQuantidade.value = "";
+        this.inputValor.value = "";
+        this.inputData.focus();
     }
 }
