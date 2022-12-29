@@ -5,7 +5,9 @@
         // Qual versao do ES o compilador do ts vai converter os arquivos
         "target": "ES6",
         // Não compilar se houver erro
-        "noEmitOnError": true
+        "noEmitOnError": true,
+        // Adicinado tipagem a linguagem
+        "noImplicitAny": true
     },
     // diretorio onde estao os arquivos ts
     "include": ["app/**/*"]
