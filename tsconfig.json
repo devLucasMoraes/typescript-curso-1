@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         // diretorio onde o compilador ts vai jogar os arquivos convertidos em js
-        "outDir": "dist/js",
+        "outDir": "app/dist/js",
         // Qual versao do ES o compilador do ts vai converter os arquivos
         "target": "ES6",
         // Não compilar se houver erro
@@ -14,5 +14,5 @@
         "strictNullChecks": true
     },
     // diretorio onde estao os arquivos ts
-    "include": ["app/**/*"]
+    "include": ["app/src/**/*"]
 }
