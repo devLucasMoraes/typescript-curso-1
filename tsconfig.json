@@ -11,7 +11,9 @@
         // Comentarios não são passados para os arquivos js
         "removeComments": true,
         // Obrigando a lidar com propriedades que a situação pode ser nula
-        "strictNullChecks": true
+        "strictNullChecks": true,
+        // Ultilizar decorators
+        "experimentalDecorators": true
     },
     // diretorio onde estao os arquivos ts
     "include": ["app/src/**/*"]
