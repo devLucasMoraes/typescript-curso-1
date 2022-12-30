@@ -9,7 +9,9 @@
         // Adicinado tipagem a linguagem
         "noImplicitAny": true,
         // Comentarios não são passados para os arquivos js
-        "removeComments": true
+        "removeComments": true,
+        // Obrigando a lidar com propriedades que a situação pode ser nula
+        "strictNullChecks": true
     },
     // diretorio onde estao os arquivos ts
     "include": ["app/**/*"]
