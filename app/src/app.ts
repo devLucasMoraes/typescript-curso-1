@@ -14,6 +14,16 @@ if (form) {
     
 }
 
+const btnImportar = document.querySelector('[data-btn-importar]');
+
+if(btnImportar) {
+    btnImportar.addEventListener('click', () => {
+        controller.importarDados();
+    })
+} else {
+    throw Error('Botão importar não foi encontrado')
+}
+
 
 
 
