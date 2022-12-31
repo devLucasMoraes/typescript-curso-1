@@ -23,13 +23,15 @@ export class NegociacaoController {
         this.negociacoesView.update(this.negociacoes);
     }
 
-    @logarTempoDeExecucao()
+    
     public adiciona(): void {
         const negociacao = Negociacao.criaNegociacao(this.inputData.value, this.inputQuantidade.value, this.inputValor.value);
         if (!this.ehDiaUtil(negociacao.data)) {
             this.mensagemView.update('Apenas negociações em dias úteis são aceitas.');
             return;
         }
+        console.log(negociacao.toString())
+        console.log(this.negociacoes.toString())
         this.negociacoes.adiciona(negociacao);
         this.atualizaView();
         this.limparFormulario();

@@ -10,4 +10,8 @@ export class Negociacoes {
     public lista(): ReadonlyArray<Negociacao> {
         return this.negociacoes;
     }
+
+    public toString(): string {
+        return JSON.stringify(this.negociacoes, null, 2)
+    }
 }

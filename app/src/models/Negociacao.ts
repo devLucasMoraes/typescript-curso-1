@@ -26,6 +26,14 @@ export class Negociacao {
         return this._quantidade * this._valor;
     }
 
+    public toString(): string {
+        return `
+            Data: ${this.data},
+            Quantidade: ${this.quantidade},
+            Valor: ${this.valor}
+        `
+    }
+
     public static criaNegociacao(dataString: string, quantidadeString: string, valorString: string): Negociacao {
         const exp = /-/g;
         const date = new Date(dataString.replace(exp, ','));
