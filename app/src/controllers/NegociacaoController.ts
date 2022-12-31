@@ -3,6 +3,7 @@ import { logarTempoDeExecucao } from "../decorators/logarTempoDeExecucao.js";
 import { DiasDaSemana } from "../enums/DiasDaSemana.js";
 import { Negociacao } from "../models/Negociacao.js";
 import { Negociacoes } from "../models/Negociacoes.js";
+import { NegociacoesService } from "../services/NegociacoesService.js";
 import { MensagemView } from "../views/MensagemView.js";
 import { NegociacoesView } from "../views/NegociacoesView.js";
 
@@ -16,6 +17,7 @@ export class NegociacaoController {
     private negociacoes: Negociacoes = new Negociacoes();
     private negociacoesView: NegociacoesView = new NegociacoesView('[data-negociacoesView]');
     private mensagemView: MensagemView = new MensagemView('[data-mensagem-view]');
+    private NegociacoesService = new NegociacoesService();
 
     constructor() {
         this.negociacoesView.update(this.negociacoes);
@@ -34,19 +36,14 @@ export class NegociacaoController {
     }
 
     public importarDados() {
-        fetch('http://localhost:8080/dados')
-            .then(res => res.json())
-            .then((dados: Array<NegociacoesDoDia>) => {
-                return dados.map(dadoDeHoje => {
-                    return new Negociacao(new Date(), dadoDeHoje.vezes, dadoDeHoje.montante)
+            this.NegociacoesService
+                .obterNegociacoesDoDia()
+                .then(negociacoesDeHoje => {
+                    for(let negociacao of negociacoesDeHoje) {
+                        this.negociacoes.adiciona(negociacao);
+                    }
+                    this.negociacoesView.update(this.negociacoes);
                 })
-            })
-            .then(negociacoesDeHoje => {
-                for(let negociacao of negociacoesDeHoje) {
-                    this.negociacoes.adiciona(negociacao);
-                }
-                this.negociacoesView.update(this.negociacoes);
-            })
     }
     
     private ehDiaUtil(data: Date): boolean {
