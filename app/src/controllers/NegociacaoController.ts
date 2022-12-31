@@ -36,7 +36,7 @@ export class NegociacaoController {
     public importarDados() {
         fetch('http://localhost:8080/dados')
             .then(res => res.json())
-            .then((dados: Array<any>) => {
+            .then((dados: Array<NegociacoesDoDia>) => {
                 return dados.map(dadoDeHoje => {
                     return new Negociacao(new Date(), dadoDeHoje.vezes, dadoDeHoje.montante)
                 })
