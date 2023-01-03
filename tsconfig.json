@@ -13,7 +13,9 @@
         // Obrigando a lidar com propriedades que a situação pode ser nula
         "strictNullChecks": true,
         // Ultilizar decorators
-        "experimentalDecorators": true
+        "experimentalDecorators": true,
+        // Debugar arquivos ts direto do browser
+        "sourceMap": true
     },
     // diretorio onde estao os arquivos ts
     "include": ["app/src/**/*"]
