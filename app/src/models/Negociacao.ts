@@ -30,10 +30,16 @@ export class Negociacao implements Imprimivel {
 
     public toString(): string {
         return `
-            Data: ${this.data},
+            Data: ${this.data.getDate()} / ${this.data.getMonth()} / ${this.data.getFullYear()}
             Quantidade: ${this.quantidade},
             Valor: ${this.valor}
         `
+    }
+
+    public ehIgual(negociacao: Negociacao): boolean {
+        return this.data.getDate() == negociacao.data.getDate()
+                && this.data.getMonth() == negociacao.data.getMonth()
+                && this.data.getFullYear() == negociacao.data.getFullYear();
     }
 
     public static criaNegociacao(dataString: string, quantidadeString: string, valorString: string): Negociacao {
